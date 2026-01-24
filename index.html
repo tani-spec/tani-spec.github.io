@@ -3,246 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanishka Upadhyay</title>
+    <title>Tanishka's Creative World</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* --- KEEPING THE VIBRANT THEME EXACTLY THE SAME --- */
+        :root {
+            --bg-gradient: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #a1c4fd, #c2e9fb);
+            --card-glass: rgba(255, 255, 255, 0.7);
+            --text-dark: #2d3436;
+            --accent-purple: #6c5ce7;
+            --accent-pink: #fd79a8;
+            --white: #ffffff;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #fff;
-            overflow-x: hidden;
+            font-family: 'Quicksand', sans-serif;
+            background: var(--bg-gradient);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-dark);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        .hero {
+        header {
             text-align: center;
-            margin-bottom: 60px;
-            animation: fadeInUp 1s ease;
+            padding: 80px 20px 40px 20px;
         }
 
-        .name {
-            font-size: 3.5em;
-            font-weight: 800;
-            margin-bottom: 10px;
-            background: linear-gradient(45deg, #fff, #e0e7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        h1 {
+            font-size: 4.5rem;
+            margin: 0;
+            color: var(--white);
+            text-shadow: 4px 4px 0px var(--accent-purple);
             letter-spacing: -2px;
         }
 
         .tagline {
-            font-size: 1.3em;
-            opacity: 0.9;
-            font-weight: 300;
-            margin-bottom: 30px;
-        }
-
-        .age-badge {
+            background: var(--white);
             display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            color: var(--accent-purple);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 15px;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 90%;
+            padding-bottom: 100px;
+        }
+
+        .section-card {
+            background: var(--card-glass);
             backdrop-filter: blur(10px);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            margin-top: 10px;
+            border: 2px solid var(--white);
+            border-radius: 40px;
+            padding: 45px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            animation: float 5s ease-in-out infinite;
         }
 
-        .section {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: fadeInUp 1s ease;
-            animation-delay: 0.2s;
-            animation-fill-mode: both;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        h2 {
+            font-size: 2.2rem;
+            color: var(--accent-purple);
+            margin-top: 0;
         }
 
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .section-title {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            font-weight: 700;
+        /* --- Skills Section Fixed --- */
+        .skills-container {
             display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::before {
-            content: '';
-            width: 4px;
-            height: 30px;
-            background: #fff;
-            border-radius: 2px;
-        }
-
-        .about-text {
-            font-size: 1.1em;
-            line-height: 1.8;
-            opacity: 0.95;
-        }
-
-        .values {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
             margin-top: 20px;
         }
 
-        .value-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
+        .skill-pill {
+            background: var(--white);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            color: var(--accent-pink);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.5);
+            transition: 0.3s;
         }
 
-        .value-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: scale(1.05);
+        .skill-pill:hover {
+            transform: scale(1.1);
+            background: var(--accent-pink);
+            color: white;
         }
 
-        .value-icon {
-            font-size: 2em;
-            margin-bottom: 10px;
+        /* --- Detailed Projects Grid --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        .value-title {
-            font-size: 1.2em;
-            font-weight: 600;
-            margin-bottom: 8px;
+        .project-item {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 35px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-bottom: 6px solid #dfe6e9;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .value-desc {
-            font-size: 0.95em;
-            opacity: 0.85;
-            line-height: 1.6;
+        .project-item:hover {
+            transform: scale(1.05) rotate(1deg);
+            border-bottom: 6px solid var(--accent-pink);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
-        .cta {
+        .emoji-big {
+            font-size: 3.5rem;
+            margin-bottom: 5px;
+        }
+
+        /* --- Aldebaran Special Section --- */
+        .aldebaran {
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            color: white;
+            border-radius: 50px;
+            padding: 60px;
             text-align: center;
-            padding: 40px 20px;
-            animation: fadeInUp 1s ease;
-            animation-delay: 0.4s;
-            animation-fill-mode: both;
+            box-shadow: 0 20px 40px rgba(108, 92, 231, 0.4);
+            margin-top: 40px;
         }
 
-        .cta-text {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            font-weight: 300;
+        .aldebaran h2 {
+            font-size: 3rem;
+            color: #fffa65;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
         }
 
-        .highlight {
-            color: #ffd700;
-            font-weight: 600;
+        .aldebaran p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 20px auto;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .feature-tags {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
         }
 
-        .floating {
-            animation: float 6s ease-in-out infinite;
+        .feature-tags li {
+            background: rgba(255,255,255,0.25);
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            backdrop-filter: blur(5px);
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        footer {
+            margin-top: 20px;
+            font-weight: bold;
+            color: var(--accent-purple);
+            opacity: 0.8;
         }
 
-        .sparkle {
-            display: inline-block;
-            animation: sparkle 2s ease-in-out infinite;
-        }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; transform: scale(1.1); }
-        }
-
-        @media (max-width: 768px) {
-            .name {
-                font-size: 2.5em;
-            }
-            
-            .section {
-                padding: 25px;
-            }
-            
-            .values {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <header>
+        <h1>Tanishka Upadhyay</h1>
+        <div class="tagline">Made with curiosity and code! ✨</div>
+    </header>
+
     <div class="container">
-        <div class="hero floating">
-            <h1 class="name">Tanishka Upadhyay</h1>
-            <p class="tagline">Building the future, one line of code at a time</p>
-            <div class="age-badge">13-year-old AI & Code Explorer</div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">About Me</h2>
-            <p class="about-text">
-                I'm on a journey to understand how AI and code shape our world. At 13, I'm discovering the intersection of creativity and technology, building projects that are clean, purposeful, and designed to make a difference. Every project is a learning opportunity, every challenge a chance to grow.
-            </p>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">What I Believe In</h2>
-            <div class="values">
-                <div class="value-card">
-                    <div class="value-icon">✨</div>
-                    <div class="value-title">Minimalism</div>
-                    <div class="value-desc">Less is more. I create solutions that are elegant, focused, and free from unnecessary complexity.</div>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">🎨</div>
-                    <div class="value-title">Creativity</div>
-                    <div class="value-desc">Every project is a canvas. I blend functionality with design to create experiences that inspire.</div>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">📚</div>
-                    <div class="value-title">Continuous Learning</div>
-                    <div class="value-desc">I embrace feedback and see every critique as a stepping stone to becoming better.</div>
-                </div>
+        
+        <div class="section-card">
+            <h2>About Me 🎨</h2>
+            <p>I am a <strong>13-year-old student</strong> on an exciting journey into the world of <strong>Artificial Intelligence and Software Development</strong>. For me, coding isn't just about syntax—it's about bringing ideas to life!</p>
+            <p>I believe that the best way to grow is to take <strong>criticism optimistically</strong>; every bug is just a lesson in disguise. I am always ready to learn, explore, and push the boundaries of what I can build. My design philosophy is simple: <strong>Simplicity, Creativity, and Charm.</strong></p>
+            
+            <div class="skills-container">
+                <div class="skill-pill">🐍 Python</div>
+                <div class="skill-pill">🌐 HTML/CSS</div>
+                <div class="skill-pill">⚡ JavaScript</div>
+                <div class="skill-pill">🤖 AI Prompting</div>
+                <div class="skill-pill">🎮 Game Logic</div>
             </div>
         </div>
 
-        <div class="cta">
-            <p class="cta-text">
-                <span class="sparkle">💡</span> Let's build something <span class="highlight">amazing</span> together
-            </p>
-            <p style="opacity: 0.8; font-size: 1.1em;">Open to collaboration, feedback, and new ideas</p>
+        <h2 style="text-align: center; color: white; text-shadow: 2px 2px var(--accent-purple); margin-bottom: 30px;">My Creations 💻</h2>
+        
+        <div class="project-grid">
+            <div class="project-item">
+                <span class="emoji-big">⚽</span>
+                <h3>Sport-Guessing</h3>
+                <p>A logic-based Python game that challenges players to identify sports through clever hints and interactive prompts.</p>
+            </div>
+            
+            <div class="project-item" style="animation-delay: 0.2s;">
+                <span class="emoji-big">🌈</span>
+                <h3>Color Anomaly</h3>
+                <p>An eye-testing game built with HTML and JS where you must find the "hidden" shade before the timer runs out!</p>
+            </div>
+            
+            <div class="project-item" style="animation-delay: 0.4s;">
+                <span class="emoji-big">🔍</span>
+                <h3>Image-Detector</h3>
+                <p>Using AI-based vision libraries, this project can recognize objects in real-time through your camera.</p>
+            </div>
+            
+            <div class="project-item" style="animation-delay: 0.6s;">
+                <span class="emoji-big">💬</span>
+                <h3>Voice-Chat AI</h3>
+                <p>A personal AI buddy that listens to your voice and responds back, blending natural language processing with fun conversation.</p>
+            </div>
+
+            <div class="project-item" style="animation-delay: 0.8s;">
+                <span class="emoji-big">📚</span>
+                <h3>Personal Study AI</h3>
+                <p>My custom-built assistant designed to help organize study schedules and explain complex topics using AI logic.</p>
+            </div>
         </div>
+
+        <div class="aldebaran">
+            <span class="emoji-big">✨</span>
+            <h2>Masterpiece: "Aldebaran"</h2>
+            <p>Named after the giant red star in the Taurus constellation, <strong>Aldebaran</strong> is my most ambitious project to date. It is a comprehensive space-themed experience that bridges the gap between technology and the cosmos.</p>
+            
+            <ul class="feature-tags">
+                <li>♈ Zodiac & Horoscope Insights</li>
+                <li>☄️ Live Celestial Events</li>
+                <li>🪐 Solar System Explorer</li>
+                <li>⭐ Constellation Trivia</li>
+                <li>🔭 Astronomical Data</li>
+            </ul>
+            
+            <p style="font-style: italic; margin-top: 30px;">"The universe is full of mysteries, and I'm using code to explore them. Hope you enjoy my projects just as much as I do!"</p>
+        </div>
+
+        <footer style="text-align: center; padding: 40px;">
+            <p>Designed & Coded by Tanishka Upadhyay 🚀 2026</p>
+        </footer>
     </div>
+
 </body>
 </html>
